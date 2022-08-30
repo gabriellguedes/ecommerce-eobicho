@@ -19,7 +19,7 @@ from django.conf import settings
 from pet.views import FormInfoPet,FormInspecaoPet
 
 urlpatterns = [
-    path('', FormInfoPet, name='Cadastro do Pet'),
-    path('formInspecaoPet/', FormInspecaoPet, name='Inspeção Pet' ),
-    path('admin/', admin.site.urls),
+    path('', FormInfoPet, name='InfoPet'),
+    path('formInspecaoPet/', FormInspecaoPet, name='InspecaoPet' ),
+    path('admin/', admin.site.urls, name='login'),
 ]

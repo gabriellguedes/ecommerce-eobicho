@@ -1,8 +1,10 @@
 {% extends 'base.html'%}
 {% block content %}
 <!-- FORM IDENTIFICAÇÃO DOS PETS -->
- <h2 class="">IDENTIFICAÇÃO DO PET</h2>
+ 
 <form class="container">
+  <br>
+  <h2 class="">IDENTIFICAÇÃO DO PET</h2>
   <div class="form-row">
     <div class="col col-lg-5 mb-3">
       <label for="validationDefault01">Nome</label>
@@ -100,8 +102,8 @@
     
     <div class="col-md-3 mb-3">
       <label>Observações:</label>
-      <input type="text" class="form-control" name="">
-      <select>
+     
+      <select class="form-row form-control">
         <option>leishmaniose</option>
         <option>Doença gastro intestinal</option>
         <option>Trauma cutaneo</option>
@@ -113,4 +115,5 @@
  	
    <button class="btn btn-primary btn-lg" type="submit">Enviar</button>
 </form><!-- /FORM IDENTIFICAÇÃO DOS PETS -->
+<br>
 {% endblock content%}
