@@ -6,9 +6,14 @@
 #wrap-header{
  width: 100%;
  min-height: 100px;
- background: red;
+ background: #1fb9b1;
  color: white;
- text-align: center;
+ 
+}
+#wrap-header img{
+	width: 30%;
+	float: left;
+    margin-left: 40pt;
 }
 
 #wrap-main{
