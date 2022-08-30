@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
-from pet.views import home
+from pet.views import FormInfoPet,FormInspecaoPet
 
 urlpatterns = [
-    path('', home, name='home'),
+    path('', FormInfoPet, name='Cadastro do Pet'),
+    path('formInspecaoPet/', FormInspecaoPet, name='Inspeção Pet' ),
     path('admin/', admin.site.urls),
 ]
