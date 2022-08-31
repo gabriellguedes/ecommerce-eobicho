@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container"> 
+	
+	<form class="col-lg-6 mb-3">
+		<h1 class="">Lista de Animais</h1>
+		{% csrf_token %}
+	        <ul class="list-group list-group-flush">
+	            {% for pet in object_list %}
+	            <li class="list-group-item">{{ pet.nome }}</li>
+	            {% endfor %}
+	        </ul>
+	</form>
+</div>
+{% endblock %}

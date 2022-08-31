@@ -131,7 +131,7 @@ COLORACAO_CHOICES = (
 	('preto','Preto')
 )
 
-class FormCadPetModel(models.Model):
+class formPet(models.Model):
 	nome = models.CharField(max_length=150)
 	apelido = models.CharField(max_length=30)
 	aniversario = models.DateTimeField(blank=True, null=True)

@@ -18,8 +18,10 @@ from django.urls import path
 from django.conf.urls import include
 from django.conf import settings
 
+app_name = 'eobicho'
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', include('pet.urls')),
 
 ]

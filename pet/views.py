@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import ListView
-from .models import FormCadPetModel
+from .models import formPet
 from .forms import CadastroPet
 
 def FormInspecaoPet(request):
@@ -26,6 +26,7 @@ def form(request):
         return render(request, 'form.html', context=context)
 
 class listPet(ListView):
-    model = FormCadPetModel
-    queryset = FormCadPetModel.objects.all()
+    model = formPet
+    queryset = formPet.objects.all()
+    
 

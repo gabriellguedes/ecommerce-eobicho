@@ -1,7 +1,7 @@
 from django import forms
-from .models import FormCadPetModel
+from .models import formPet
 
 class CadastroPet(forms.ModelForm):
 	class Meta:
-		model = FormCadPetModel
+		model = formPet
 		fields = '__all__'

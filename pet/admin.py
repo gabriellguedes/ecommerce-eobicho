@@ -1,6 +1,6 @@
 from django.contrib import admin
-from pet.models import FormCadPetModel
+from pet.models import formPet
 
-admin.site.register(FormCadPetModel)
+admin.site.register(formPet)
 
 # Register your models here.
