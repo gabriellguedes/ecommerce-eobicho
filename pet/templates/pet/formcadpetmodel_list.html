@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+<form class="container form-row">
+	{% csrf_token %}
+	<div class="form-row">
+		{% for pet in object_list%}
+		<div>
+			{{ pet.nome }}
+		</div>
+		{{ form|crispy }}
+		{% endfor %}
+	</div>
+	
+	
+</form>
