@@ -1,6 +1,12 @@
-from django.conf.urls import url, include
-from pet.views import home
+from django.urls import path
+from .views import FormCadPetModel, form, listPet
+from . import views
+
+app_name = 'pet'
+
 urlpatterns = [
-    url(r'^$', home ,name='home'),
-    
-]
+    path('', views.form, name="formulario" ),
+    path('formInspecaoPet/', views.FormInspecaoPet, name='InspecaoPet' ),
+    path('list', views.listPet.as_view(), name='form_list' ),
+        
+] 

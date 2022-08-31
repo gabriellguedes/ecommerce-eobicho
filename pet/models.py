@@ -119,18 +119,35 @@ TEMPERAMENTO_CHOICES =(
     ('13','Ousado'),
     ('14','Tímido'),
 )
-
+PELAGEM_CHOICES = (
+	('1','Levemente Aspera'),
+	('2', 'Fios Lisos e Longos')
+)
+COLORACAO_CHOICES = (
+	('amarelo', 'Amarelo'),
+	('branco', 'Branco'),
+	('caramelo', 'Caramelo'),
+	('marrom', 'Marrom'),
+	('preto','Preto')
+)
 
 class FormCadPetModel(models.Model):
 	nome = models.CharField(max_length=150)
 	apelido = models.CharField(max_length=30)
 	aniversario = models.DateTimeField(blank=True, null=True)
-	idade = models.IntegerField(default=0)
+	idade = models.IntegerField()
 	peso = models.IntegerField()
 	tamanho = models.IntegerField()
 	especie = models.CharField(max_length=3, choices=ESPECIE_CHOICES, default=0)
 	racaCachorro = models.CharField(max_length=3, default=0, choices=RACA_CACHORRO)
-	temperamento = models.CharField(max_length=3, choices=TEMPERAMENTO_CHOICES, default=0)	
+	temperamento = models.CharField(max_length=3, choices=TEMPERAMENTO_CHOICES, default=0)
+	pelagem = models.CharField(max_length=2, choices=PELAGEM_CHOICES, default=0)
+	coloracao = models.CharField(max_length=10, choices=COLORACAO_CHOICES, default=0)
+	tamanho = models.IntegerField(default=0)
+	caracteristicas = models.CharField(max_length=200,default=0)
+
+	def __str__(self):
+		self.nome	
 
 	
 

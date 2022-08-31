@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
 from django.conf import settings
-from pet.views import FormInfoPet, FormInspecaoPet, form
+
 urlpatterns = [
-    path('', FormInfoPet, name='InfoPet'),
-    path('formInspecaoPet/', FormInspecaoPet, name='InspecaoPet' ),
-    path('form/', form, name="formulario" ),
     path('admin/', admin.site.urls),
+    path('', include('pet.urls')),
+
 ]

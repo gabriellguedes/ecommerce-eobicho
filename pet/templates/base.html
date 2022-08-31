@@ -13,7 +13,7 @@
 <body>
     <header id="wrap-header">
       <div class="container">
-        <a href="{% url 'InfoPet' %}"><img class="card-img-top" alt="logo" src="{% static 'img/logo.png'%}"></a>
+        <a href="{% url 'pet:formulario' %}"><img class="card-img-top" alt="logo" src="{% static 'img/logo.png'%}"></a>
       </div>  
         <!-- Nav Menu -->
         
@@ -21,8 +21,8 @@
             <div class="container">
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-item nav-link active" href="{% url 'InfoPet' %}">Informações do Pet</a>
-                  <a class="nav-item nav-link active" href="{% url 'InspecaoPet' %}">Inspeção Física</a>
+                  <a class="nav-item nav-link active" href="{% url 'pet:formulario' %}">Informações do Pet</a>
+                  <a class="nav-item nav-link active" href="{% url 'pet:InspecaoPet' %}">Inspeção Física</a>
                   <a class="nav-item nav-link active" href="">Login</a>
                 </div>    
               </div>
