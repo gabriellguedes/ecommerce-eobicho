@@ -2,15 +2,20 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="container"> 
-	
-	<form class="col-lg-6 mb-3">
-		<h1 class="">Lista de Animais</h1>
-		{% csrf_token %}
-	        <ul class="list-group list-group-flush">
-	            {% for pet in object_list %}
-	            <li class="list-group-item">{{ pet.nome }}</li>
-	            {% endfor %}
-	        </ul>
-	</form>
+	<h1 class="">Lista de Animais</h1>
+	{% csrf_token %}
+	<!--<div class="row">
+		<div class="col-md-6 mb-3"><h3>Nomes</h3></div>
+        <div class="col-md-6 mb-3"><h3>Espécies:</h3></div>
+	</div>-->
+	<div class="col-md-6">
+	    <form class="row">
+	    	{% for pet in object_list %}
+	        <div class="text-uppercase col-md-6 mb-3">{{ pet.nome }}</div>
+	        <div class="text-uppercase col-md-6 mb-3">{{ pet.especie }}</div>
+
+	        {% endfor %}
+	    </form>
+	</div>
 </div>
 {% endblock %}

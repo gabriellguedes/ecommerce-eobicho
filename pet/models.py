@@ -1,11 +1,11 @@
 from django.db import models
 
 ESPECIE_CHOICES = (
-	('1', 'Cachorro'),
-	('2', 'Gato'),
-	('3', 'Coelho'),
-	('4', 'Cavalo'),
-	('5', 'Peixe')
+	('cachorro', 'Cachorro'),
+	('gato', 'Gato'),
+	('coelho', 'Coelho'),
+	('cavalo', 'Cavalo'),
+	('peixe', 'Peixe')
 )
 
 RACA_CACHORRO = (
@@ -138,7 +138,7 @@ class formPet(models.Model):
 	idade = models.IntegerField()
 	peso = models.IntegerField()
 	tamanho = models.IntegerField()
-	especie = models.CharField(max_length=3, choices=ESPECIE_CHOICES)
+	especie = models.CharField(max_length=10, choices=ESPECIE_CHOICES)
 	racaCachorro = models.CharField(max_length=3, choices=RACA_CACHORRO)
 	temperamento = models.CharField(max_length=3, choices=TEMPERAMENTO_CHOICES)
 	pelagem = models.CharField(max_length=2, choices=PELAGEM_CHOICES)
