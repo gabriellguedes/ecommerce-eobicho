@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
 from django.conf import settings
-from pet.views import FormInfoPet, FormInspecaoPet
+from pet.views import FormInfoPet, FormInspecaoPet, form
 urlpatterns = [
     path('', FormInfoPet, name='InfoPet'),
     path('formInspecaoPet/', FormInspecaoPet, name='InspecaoPet' ),
+    path('form/', form, name="formulario" ),
     path('admin/', admin.site.urls),
 ]
