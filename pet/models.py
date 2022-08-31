@@ -138,16 +138,15 @@ class FormCadPetModel(models.Model):
 	idade = models.IntegerField()
 	peso = models.IntegerField()
 	tamanho = models.IntegerField()
-	especie = models.CharField(max_length=3, choices=ESPECIE_CHOICES, default=0)
-	racaCachorro = models.CharField(max_length=3, default=0, choices=RACA_CACHORRO)
-	temperamento = models.CharField(max_length=3, choices=TEMPERAMENTO_CHOICES, default=0)
-	pelagem = models.CharField(max_length=2, choices=PELAGEM_CHOICES, default=0)
-	coloracao = models.CharField(max_length=10, choices=COLORACAO_CHOICES, default=0)
-	tamanho = models.IntegerField(default=0)
-	caracteristicas = models.CharField(max_length=200,default=0)
-
+	especie = models.CharField(max_length=3, choices=ESPECIE_CHOICES)
+	racaCachorro = models.CharField(max_length=3, choices=RACA_CACHORRO)
+	temperamento = models.CharField(max_length=3, choices=TEMPERAMENTO_CHOICES)
+	pelagem = models.CharField(max_length=2, choices=PELAGEM_CHOICES)
+	coloracao = models.CharField(max_length=10, choices=COLORACAO_CHOICES)
+	tamanho = models.IntegerField()
+	caracteristicas = models.CharField(max_length=200)
 	def __str__(self):
-		self.nome	
+		return self.nome	
 
 	
 

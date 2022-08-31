@@ -7,6 +7,6 @@ app_name = 'pet'
 urlpatterns = [
     path('', views.form, name="formulario" ),
     path('formInspecaoPet/', views.FormInspecaoPet, name='InspecaoPet' ),
-    path('list', views.listPet.as_view(), name='form_list' ),
+    path('list', views.listPet.as_view()),
         
 ] 
