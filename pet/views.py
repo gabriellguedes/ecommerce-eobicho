@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from datetime import datetime
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.views.generic import ListView, DetailView, UpdateView
@@ -25,6 +26,7 @@ def form(request):
         context = {
             'form':form
         }
+        
         return render(request, 'pet/formpet_form.html', context=context)
 
 class listPet(ListView):
@@ -38,7 +40,7 @@ class updatePet(UpdateView):
 
 class detailPet(DetailView):
     queryset = formPet.objects.all()
-
+    
 class deletePet(DeleteView):
     queryset = formPet.objects.all()
     success_url = reverse_lazy('pet:list')
