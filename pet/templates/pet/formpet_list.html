@@ -4,17 +4,19 @@
 <div class="container"> 
 	<h1 class="">Lista de Animais</h1>
 	{% csrf_token %}
-	<!--<div class="row">
-		<div class="col-md-6 mb-3"><h3>Nomes</h3></div>
-        <div class="col-md-6 mb-3"><h3>Espécies:</h3></div>
-	</div>-->
-	<div class="col-md-6">
-	    <form class="row">
+	<div class="col-lg-6">
+	    <form class="form-row">
 	    	{% for pet in object_list %}
-	        <div class="text-uppercase col-md-6 mb-3">{{ pet.nome }}</div>
-	        <a href="{% url 'pet:detail' pk=pet.id %}">Visualizar</a>
-	        <a href="{% url 'pet:update' pk=pet.id %}">Editar</a>
-	        <a href="{% url 'pet:delete' pk=pet.id %}">deletar</a>
+	        <div class="text-uppercase col-md-3 mb-3">{{ pet.nome }}</div>
+	        <div class="col-sm mb-3 ">
+	        	<a class="btn btn-primary btn-md" href="{% url 'pet:detail' pk=pet.id %}">Visualizar</a>
+	        </div>
+	        <div class="col-sm mb-3 ">
+	        	<a class="btn btn-primary btn-md" href="{% url 'pet:update' pk=pet.id %}">Editar</a>
+	        </div>
+	        <div class="col-sm mb-3 ">
+	        	<a class="btn btn-primary btn-md" href="{% url 'pet:delete' pk=pet.id %}">Deletar</a>
+	        </div>
 	        {% endfor %}
 	    </form>
 	</div>
