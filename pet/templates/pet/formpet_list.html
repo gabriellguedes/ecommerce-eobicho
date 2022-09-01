@@ -12,8 +12,9 @@
 	    <form class="row">
 	    	{% for pet in object_list %}
 	        <div class="text-uppercase col-md-6 mb-3">{{ pet.nome }}</div>
-	        <div class="text-uppercase col-md-6 mb-3">{{ pet.especie }}</div>
-
+	        <a href="{% url 'pet:detail' pk=pet.id %}">Visualizar</a>
+	        <a href="{% url 'pet:update' pk=pet.id %}">Editar</a>
+	        <a href="{% url 'pet:delete' pk=pet.id %}">deletar</a>
 	        {% endfor %}
 	    </form>
 	</div>

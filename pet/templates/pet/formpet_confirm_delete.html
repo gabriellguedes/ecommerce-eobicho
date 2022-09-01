@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<p>Tem certeza que deseja apagar o registro do '{{ object.nome }}'</p>
+	<form method="POST">
+		{% csrf_token %}
+		<button type="submit">Sim, tenho certeza!</button>
+		<button type="reset" onclick="location.href='{% url 'pet:list' %}'">Não, desejo voltar!</button>
+	</form>
+</body>
+{% endblock %}

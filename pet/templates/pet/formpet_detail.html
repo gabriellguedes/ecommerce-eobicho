@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Ficha Técnica do Pet</h1>
+	<p>Nome: <spam>{{object.nome}}</spam> </p>
+	<p>Apelido: <spam>{{object.apelido}}</spam> </p>
+	<p>Aniversário: <spam>{{object.aniversario}}</spam> </p>
+	<p>Idade: <spam>{{object.idade}}</spam> </p>
+	<p>Peso: <spam>{{object.peso}}</spam> </p>
+	<p>Tamanho: <spam>{{object.tamanho}}</spam> </p>
+	<p>Especie: <spam>{{object.especie}}</spam> </p>
+	<p>Raça: <spam>{{object.racaCachorro}}</spam> </p>
+	<p>Temperamento: <spam>{{object.temperamento}}</spam> </p>
+	<p>Pelagem: <spam>{{object.pelagem}}</spam> </p>
+	<p>Coloração: <spam>{{object.coloracao}}</spam> </p>
+	<p>Tamanho: <spam>{{object.tamanho}}</spam> </p>
+	<p>Caracteristicas: <spam>{{object.caracteristicas}}</spam> </p>	
+	<button type="submit" onclick="location.href='{% url 'pet:list'%}'">Voltar</button>
+{% endblock %}
