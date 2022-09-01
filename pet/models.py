@@ -132,19 +132,19 @@ COLORACAO_CHOICES = (
 )
 
 class formPet(models.Model):
-	nome = models.CharField(max_length=150)
-	apelido = models.CharField(max_length=30)
-	aniversario = models.DateTimeField(blank=True, null=True)
-	idade = models.IntegerField()
-	peso = models.IntegerField()
-	tamanho = models.IntegerField()
-	especie = models.CharField(max_length=10, choices=ESPECIE_CHOICES)
-	racaCachorro = models.CharField(max_length=3, choices=RACA_CACHORRO)
-	temperamento = models.CharField(max_length=3, choices=TEMPERAMENTO_CHOICES)
-	pelagem = models.CharField(max_length=2, choices=PELAGEM_CHOICES)
-	coloracao = models.CharField(max_length=10, choices=COLORACAO_CHOICES)
-	tamanho = models.IntegerField()
-	caracteristicas = models.CharField(max_length=200)
+	nome = models.CharField('Nome',max_length=150)
+	apelido = models.CharField('Apelido',max_length=30)
+	aniversario = models.DateField('Aniversário', blank=True, null=True)
+	idade = models.IntegerField('Idade')
+	peso = models.IntegerField('Peso(kg)')
+	tamanho = models.IntegerField('Tamanho')
+	especie = models.CharField('Especie',max_length=10, choices=ESPECIE_CHOICES)
+	racaCachorro = models.CharField('Raça do Cachorro',max_length=3, choices=RACA_CACHORRO)
+	temperamento = models.CharField('Temperamento',max_length=3, choices=TEMPERAMENTO_CHOICES)
+	pelagem = models.CharField('Pelagem',max_length=2, choices=PELAGEM_CHOICES)
+	coloracao = models.CharField('Coloração',max_length=10, choices=COLORACAO_CHOICES)
+	tamanho = models.IntegerField('Tamanho(cm)',)
+	caracteristicas = models.CharField('Caracteristicas', max_length=200)
 	def __str__(self):
 		return self.nome	
 
