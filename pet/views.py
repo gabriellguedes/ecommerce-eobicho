@@ -49,6 +49,7 @@ def paginacao(request):
         page = pets_paginator.page(1)
 
     context = {
+        'items_list':['5', '10', '20', '30', '50'],
         'pets':page
     }
     return render(request, 'pet/formpet_list.html', context)
