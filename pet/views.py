@@ -32,7 +32,7 @@ def form(request):
 
 def paginacao(request):
     parametro_page = request.GET.get('page', '1')
-    parametro_limit = request.GET.get('limit', '10')
+    parametro_limit = request.GET.get('limit', '5')
 
     if not (parametro_limit.isdigit() and int(parametro_limit)>0):
         parametro_limit = '10'
@@ -40,7 +40,6 @@ def paginacao(request):
 
 
     pets = formPet.objects.all()
-
     pets_paginator = Paginator(pets, parametro_limit)
 
     try:
@@ -49,8 +48,8 @@ def paginacao(request):
         page = pets_paginator.page(1)
 
     context = {
-        'items_list':['5', '10', '20', '30', '50'],
-        'pets':page
+        'items_list': ['5','10', '20', '30', '50'],
+        'pets': page
     }
     return render(request, 'pet/formpet_list.html', context)
 
@@ -68,27 +67,4 @@ class detailPet(DetailView):
 class deletePet(DeleteView):
     queryset = formPet.objects.all()
     success_url = reverse_lazy('pet:list')
-
     
-def paginacao(request):
-    parametro_page = request.GET.get('page', '1')
-    parametro_limit = request.GET.get('limit', '10')
-
-    if not (parametro_limit.isdigit() and int(parametro_limit)>0):
-        parametro_limit = '10'
-
-
-
-    pets = formPet.objects.all()
-
-    pets_paginator = Paginator(pets, parametro_limit)
-
-    try:
-        page = pets_paginator.page(parametro_page)
-    except (EmptyPage, PageNotAnInteger):
-        page = pets_paginator.page(1)
-
-    context = {
-        'pets':page
-    }
-    return render(request, 'pet/formpet_list.html', context)
