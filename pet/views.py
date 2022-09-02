@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
 from django.urls import reverse_lazy
@@ -10,7 +10,7 @@ from .forms import CadastroPet
 
 def FormInspecaoPet(request):
 	return render(request, 'formInspecao.html')
-
+#Cadastro 
 def form(request):
     if request.method == 'GET':
         form = CadastroPet()
@@ -29,7 +29,7 @@ def form(request):
         }
         
         return render(request, 'pet/formpet_form.html', context=context)
-
+#Lista de Exibição
 def paginacao(request):
     parametro_page = request.GET.get('page', '1')
     parametro_limit = request.GET.get('limit', '5')
@@ -52,18 +52,16 @@ def paginacao(request):
         'pets': page
     }
     return render(request, 'pet/formpet_list.html', context)
-
-
-
+#Atualização
 class updatePet(UpdateView):
     model = formPet
     fields = '__all__'
     success_url = reverse_lazy('pet:list')
-
+#Detalhes
 class detailPet(DetailView):
     queryset = formPet.objects.all()
 
-    
+#Apagar    
 class deletePet(DeleteView):
     queryset = formPet.objects.all()
     success_url = reverse_lazy('pet:list')

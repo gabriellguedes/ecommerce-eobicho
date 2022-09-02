@@ -20,63 +20,64 @@
 	        {% endfor %}
 	    </form>
 	</div>
-
-<div class="row">
-	<nav aria-label="...">
-	  <ul class="pagination">
-	  	{% if pets.has_previous %}
-	  	<li class="page-item">
-	      <a class="page-link" href="{% url 'pet:list'%}?page={{pets.previous_page_number}}" tabindex="-1">Anterior</a>
-	    </li>
-	    {% else %}
-	    <li class="page-item disabled">
-	      <a class="page-link" href="#" tabindex="-1">Anterior</a>
-	    </li>
-	    {% endif %}
-	    
-	    {% for num in pets.paginator.page_range %}
-	    	{% if num == pets.number %}
-		    	<li class="page-item disabled">
-		    		<a class="page-link" href="#">{{ num }}</a>
-		    	</li>
-	    	{% else %}
-		    	<li class="page-item">
-		    		<a class="page-link" href="{% url 'pet:list'%}?page={{num}}">{{ num }}</a>
-		    	</li>
-	    	{% endif %}	
-	    {% endfor %}
-
-		{% if pets.has_next %}	    
-		    <li class="page-item">
-		      <a class="page-link" href="">Next</a>
-		    </li>
-		{% else %}
-			<li class="page-item disabled" >
-		      <a class="page-link" href="#">Next</a>
-		    </li>    
-		{% endif %}
-	  </ul>
-	</nav>
-</div>
-
-<div class="row">
-	<h5>Itens:</h5>
-	<nav>
-		<ul class="pagination pagination-sm">
+	<!-- Paginator -->
+	<div class="col">
+		<p>Itens por página:</p>
+		<nav aria-label="...">
+			<ul class="pagination pagination-sm">
 			{% for qnt in items_list %}
-				{% if qnt == items_list.paginator.per_page %}	
-					<li class="page-item">
-						<a class="page-link disabled" href="#"  activate>{{ qnt }}</a>
-					</li>
-					{% else %}
-					<li class="page-item">
+				{% if qnt == items_list.paginator.per_page %}
+					<li class="page-item disabled">
+						<a class="page-link" href="#" tabindex="-1">{{ qnt }}</a>
+					</li>	
+					
+				{% else %}
+					<li class="page-item" activad>
 						<a class="page-link" href="{% url 'pet:list'%}?limit={{qnt}}">{{ qnt }}</a>
-					</li> 
+					</li>	
+					
 				{% endif %}
 			{% endfor %}
-		</ul>
-	</nav>
-</div>
+			</ul class="pagination pagination-sm">
+		</nav>
+	</div>
+	<div class="col">
+		<nav aria-label="...">
+		  <ul class="pagination">
+		  	{% if pets.has_previous %}
+			  	<li class="page-item">
+			      <a class="page-link" href="{% url 'pet:list'%}?page={{pets.previous_page_number}}">Anterior</a>
+			    </li>
+		    {% else %}
+			    <li class="page-item disabled">
+			      <a class="page-link"  href="#">Anterior</a>
+			    </li>
+		    {% endif %}
+		    
+		    {% for num in pets.paginator.page_range %}
+		    	{% if num == pets.number %}
+			    	<li class="page-item  disabled">
+			    		<a class="page-link" href="{% url 'pet:list'%}?page={{num}}">{{ num }}</a>
+			    	</li>
+		    	{% else %}
+			    	<li class="page-item">
+			    		<a class="page-link disabled" href="#">{{ num }}</a>
+			    	</li>
+		    	{% endif %}	
+		    {% endfor %}
 
+			{% if pets.has_next %}	    
+			    <li class="page-item">
+			      <a class="page-link" href="{% url 'pet:list'%}?page={{pets.next_page_number}}" desabled>Next</a>
+			    </li>
+			{% else %}
+				<li class="page-item disabled">
+			      <a class="page-link" href="#">Next</a>
+			    </li>    
+			{% endif %}
+		  </ul>
+		</nav>
+	</div>
+	<!-- /Paginator -->
 </div>
 {% endblock %}
