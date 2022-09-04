@@ -1,4 +1,7 @@
-{% extends 'base.html' %}
+{% extends 'site/base.html' %}
+{% block title%}
+{{block.super}} - Apagar Pet
+{% endblock title %}
 {% block content %}
 <p>Tem certeza que deseja apagar o registro do '{{ object.nome }}'?</p>
 	<form method="POST">

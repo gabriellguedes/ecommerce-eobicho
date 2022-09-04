@@ -3,13 +3,14 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from datetime import datetime
 from django.urls import reverse_lazy
 from django.http import HttpResponse
-from django.views.generic import ListView, DetailView, UpdateView
+from django.views.generic import UpdateView
 from django.views.generic.edit import DeleteView
 from .models import formPet
 from .forms import CadastroPet
 
 def FormInspecaoPet(request):
 	return render(request, 'formInspecao.html')
+
 #Cadastro 
 def form(request):
     if request.method == 'GET':
@@ -29,15 +30,14 @@ def form(request):
         }
         
         return render(request, 'pet/formpet_form.html', context=context)
-#Lista de Exibição
+
+#Lista de Exibição e Pesquisa
 def paginacao(request):
     parametro_page = request.GET.get('page', '1')
     parametro_limit = request.GET.get('limit', '5')
-
+    
     if not (parametro_limit.isdigit() and int(parametro_limit)>0):
         parametro_limit = '10'
-
-
 
     pets = formPet.objects.all()
     pets_paginator = Paginator(pets, parametro_limit)
@@ -49,17 +49,35 @@ def paginacao(request):
 
     context = {
         'items_list': ['5','10', '20', '30', '50'],
+        'qnt_page':parametro_limit,
         'pets': page
     }
     return render(request, 'pet/formpet_list.html', context)
+
+def search(request):
+    objects = formPet.objects.all()
+    search = request.GET.get('search')
+    if search:
+        objects = objects.filter(nome__icontains=search)
+    context = {
+        'object_list': objects
+    }
+    return render(request, 'pet/formpet_list.htmlx', context)
+
+#Atualização
+def detailPet(request, pk):
+    template ='pet/formpet_detail.html'
+    obj = formPet.objects.get(pk=pk)
+    context = { 'object': obj }
+    return render(request, template, context) 
+
+
 #Atualização
 class updatePet(UpdateView):
+    template_name = 'pet/formpet_update.html'
     model = formPet
     fields = '__all__'
     success_url = reverse_lazy('pet:list')
-#Detalhes
-class detailPet(DetailView):
-    queryset = formPet.objects.all()
 
 #Apagar    
 class deletePet(DeleteView):

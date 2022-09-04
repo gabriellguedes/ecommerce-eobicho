@@ -2,17 +2,21 @@
 	margin: 0px;
 	padding: 0px;
 }
+a{
+	text-decoration: none !important;
 
+}
 #wrap-header{
  width: 100%;
  min-height: 100px;
  background: #1fb9b1;
  color: white;
+ margin-bottom: 15px;
  
 }
 #wrap-header img{
 	display: block;
-	width: 230px;
+	max-width: 250px;
 	padding: 15px 0;
 }
 .wrap-nav{
