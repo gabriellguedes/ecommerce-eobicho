@@ -42,6 +42,10 @@ def paginacao(request):
     pets = formPet.objects.all()
     pets_paginator = Paginator(pets, parametro_limit)
 
+    search = request.GET.get('search')
+    if search:
+        pets = pets.filter(nome__icontains=search)
+
     try:
         page = pets_paginator.page(parametro_page)
     except (EmptyPage, PageNotAnInteger):
@@ -54,15 +58,7 @@ def paginacao(request):
     }
     return render(request, 'pet/formpet_list.html', context)
 
-def search(request):
-    objects = formPet.objects.all()
-    search = request.GET.get('search')
-    if search:
-        objects = objects.filter(nome__icontains=search)
-    context = {
-        'object_list': objects
-    }
-    return render(request, 'pet/formpet_list.htmlx', context)
+
 
 #Atualização
 def detailPet(request, pk):

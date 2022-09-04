@@ -30,9 +30,9 @@ a{
 	min-height: 400px;
 	margin: 0 auto;
 }
-.checkbox{
-	
-}
+	#wrap-list-pet{
+		margin-top: 15px;
+	}
 
 #wrap-footer{
 	width: 100%;
