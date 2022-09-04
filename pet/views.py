@@ -50,13 +50,15 @@ def paginacao(request):
         page = pets_paginator.page(parametro_page)
     except (EmptyPage, PageNotAnInteger):
         page = pets_paginator.page(1)
+       
 
     context = {
         'items_list': ['5','10', '20', '30', '50'],
         'qnt_page':parametro_limit,
-        'pets': page
+        'pets': page,
+        'object_list':pets
     }
-    return render(request, 'pet/formpet_list.html', context)
+    return render(request, 'test.html', context)
 
 
 

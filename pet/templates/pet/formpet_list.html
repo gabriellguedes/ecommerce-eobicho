@@ -9,10 +9,6 @@
 		<div class="col">
 			<h3 class="font-weight-bold">Lista de cadastrados</h3>
 		</div>
-		<form method="GET" action="." class="form-inline">
-            <input class="form-control mr-sm-2" name="search" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="location.href='{% url 'pet:list'%}?&limit={{qnt_page}}&page={{num}}&search={{pets}}'">Pesquisar</button>
-          </form>
 		<div class="row justify-content-end ">
 			<a class="btn btn-primary btn-lg" href="{% url 'pet:form' %}">Cadastrar Pet</a>
 		</div>	
@@ -36,10 +32,10 @@
 		      <td></td>
 		      <td><a href="{% url 'pet:detail' pk=pet.id %}">{{pet.nome}}</a> ({{pet.apelido}})</td>
 		      <td class="text-uppercase">{{pet.especie}}</td>
-		      <td>
-		      	<a class="btn btn-primary btn-md" href="{% url 'pet:detail' pk=pet.id %}">Visualizar</a>
-		      	<a class="btn btn-primary btn-md" href="{% url 'pet:update' pk=pet.id %}">Editar</a>	
-		      	<a class="btn btn-primary btn-md" href="{% url 'pet:delete' pk=pet.id %}">Deletar</a>
+		      <td class="row justify-content-end">
+		      	<a class="btn btn-primary btn-md mr-sm-2" href="{% url 'pet:detail' pk=pet.id %}">Visualizar</a>
+		      	<a class="btn btn-primary btn-md mr-sm-2" href="{% url 'pet:update' pk=pet.id %}">Editar</a>	
+		      	<a class="btn btn-primary btn-md mr-sm-2" href="{% url 'pet:delete' pk=pet.id %}">Deletar</a>
 		      </td>
 		    </tr>
 	    {% endfor %}
@@ -74,7 +70,7 @@
 			  <ul class="pagination">
 			  	{% if pets.has_previous %}
 				  	<li class="page-item">
-				      <a class="page-link" href="{% url 'pet:list'%}?limit={{qnt_page}}&page={{pets.previous_page_number}}&search={{pets}}">Anterior</a>
+				      <a class="page-link" href="{% url 'pet:list'%}?limit={{qnt_page}}&page={{pets.previous_page_number}}">Anterior</a>
 				    </li>
 			    {% else %}
 				    <li class="page-item disabled">
@@ -89,14 +85,14 @@
 				    	</li>
 			    	{% else %}
 				    	<li class="page-item">
-				    		<a class="page-link" href="{% url 'pet:list'%}?limit={{qnt_page}}&page={{num}}&search={{pets}}">{{ num }}</a>
+				    		<a class="page-link" href="{% url 'pet:list'%}?limit={{qnt_page}}&page={{num}}">{{ num }}</a>
 				    	</li>
 			    	{% endif %}	
 			    {% endfor %}
 
 				{% if pets.has_next %}	    
 				    <li class="page-item">
-				      <a class="page-link" href="{% url 'pet:list'%}?limit={{qnt_page}}&page={{pets.next_page_number}}&search={{pets}}" desabled>Next</a>
+				      <a class="page-link" href="{% url 'pet:list'%}?limit={{qnt_page}}&page={{pets.next_page_number}}">Next</a>
 				    </li>
 				{% else %}
 					<li class="page-item disabled">

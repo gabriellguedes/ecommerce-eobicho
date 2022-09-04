@@ -6,8 +6,8 @@
 	<title>Teste</title>
 </head>
 <body>
-	{% for list in ESPECIE_CHOICES %}
-		<p>{{ list }}</p>
+	{% for qnt in object_list %}
+		<p>{{ qnt.nome }}</p>
 	{% endfor %}
 </body>
 </html>
